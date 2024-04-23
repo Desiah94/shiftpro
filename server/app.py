@@ -333,6 +333,9 @@ if __name__ == '__main__':
     app.run(port=5555, debug=True)
 
 @app.route('/')
+def index():
+    return render_template("index.html", message="Welcome to the homepage!")
+
 @app.route('/<int:id>')
-def index(id=0):
-    return render_template("index.html")
+def index_with_id(id):
+    return render_template("index.html", message=f"You are viewing ID {id}")
