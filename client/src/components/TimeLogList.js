@@ -46,7 +46,7 @@ function TimeLogList() {
         setAllTimeLogs(timeLogs);
       }
     });
-  }, [selectedDate, submitClicked,isTableVisible]);
+  }, [selectedDate, submitClicked,isTableVisible, fetchAllTimeLogs, fetchData]);
 
  
   const fetchData = () => {
