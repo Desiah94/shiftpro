@@ -6,6 +6,8 @@ from flask import request, jsonify
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, unset_jwt_cookies
 from models import User, TimeLog, Role, Department
 from sqlalchemy.orm import joinedload
+from flask import render_template
+
 
 
 
@@ -327,6 +329,10 @@ def populate_roles_departments():
 
 
 if __name__ == '__main__':
-    # Uncomment the following line to populate roles and departments
-    # populate_roles_departments()
+   
     app.run(port=5555, debug=True)
+
+@app.route('/')
+@app.route('/<int:id>')
+def index(id=0):
+    return render_template("index.html")
