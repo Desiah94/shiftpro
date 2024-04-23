@@ -322,6 +322,9 @@ def populate_roles_departments():
     
     db.session.commit()
 
+
+
+
 if __name__ == '__main__':
     # Uncomment the following line to populate roles and departments
     # populate_roles_departments()
