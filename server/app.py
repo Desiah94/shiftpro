@@ -8,6 +8,7 @@ from models import User, TimeLog, Role, Department
 from sqlalchemy.orm import joinedload
 
 
+
 # Global Error Handling
 @app.errorhandler(404)
 def resource_not_found(e):
