@@ -28,14 +28,14 @@ function TimeLogList() {
     total_hours: '',
     status: 'Pending'
   });
-  const [noTimeLogMessage, setNoTimeLogMessage] = useState('');
-  const [hoursForSelectedDate, setHoursForSelectedDate] = useState(0);
+  // const [noTimeLogMessage, setNoTimeLogMessage] = useState('');
+  // const [hoursForSelectedDate, setHoursForSelectedDate] = useState(0);
   const [submitClicked, setSubmitClicked] = useState(false);
 
   useEffect(() => {
-    if (submitClicked) {
-      fetchData();
-    }
+    // if (submitClicked) {
+    //   fetchData();
+    // }
     fetchAllTimeLogs().then(data => {
       if (data) {
         const timeLogs = data.map(log => ({
@@ -46,20 +46,19 @@ function TimeLogList() {
         setAllTimeLogs(timeLogs);
       }
     });
-  }, [selectedDate, submitClicked,isTableVisible, fetchAllTimeLogs, fetchData]);
+  }, [selectedDate, submitClicked,isTableVisible, fetchAllTimeLogs ]);
 
  
-  const fetchData = () => {
-    const timeLogsForSelectedDate = data.filter(entry => entry.date === selectedDate.toISOString().split('T')[0]);
-    setNoTimeLogMessage(timeLogsForSelectedDate.length === 0 ? 'No time log present.' : '');
-    let totalHours = 0;
-    timeLogsForSelectedDate.forEach(log => {
-      totalHours += parseFloat(log.hoursWorked);
-    });
-    setHoursForSelectedDate(totalHours);
-  };
-
-
+  // const fetchData = () => {
+  //   const timeLogsForSelectedDate = data.filter(entry => entry.date === selectedDate.toISOString().split('T')[0]);
+  //   setNoTimeLogMessage(timeLogsForSelectedDate.length === 0 ? 'No time log present.' : '');
+  //   let totalHours = 0;
+  //   timeLogsForSelectedDate.forEach(log => {
+  //     totalHours += parseFloat(log.hoursWorked);
+  //   });
+  //   setHoursForSelectedDate(totalHours);
+  // };
+  
   const saveDataToBackend = (updatedData) => {
     // Logic to save data to backend
   };
@@ -243,7 +242,7 @@ const calculateHoursWorked = (clock_in, clock_out) => {
             <button onClick={handleSubmit}>Submit</button>
           </div>
           <div className="admin-dashboard-content">
-            {noTimeLogMessage && <p>{noTimeLogMessage}</p>}
+            {/* {noTimeLogMessage && <p>{noTimeLogMessage}</p>} */}
             {data.length > 0 && (
               <table className="time-log-table">
                 <thead>
